@@ -13,3 +13,5 @@ router.get("/get-single-course/:id", userVerification, getSingleCourse);
 router.get("/get-category-base-course/:cat", userVerification, categoryBasedCourse);
 router.put("/update-course/:id", userVerification, adminVerification, updateCourse);
 router.delete("/delete-course/:id", userVerification, adminVerification, deleteCourse);
+
+module.exports = router;

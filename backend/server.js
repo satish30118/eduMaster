@@ -4,7 +4,9 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./connection/db");
 const authRoutes = require("./router/authRoute");
-// const bookingRoutes = require("./router/bookingRoute");
+const testRoutes = require("./router/testRoute");
+const courseRoutes = require("./router/courseRoute");
+const feedbackRoutes = require("./router/feedbackRoute");
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -26,7 +28,9 @@ app.use(bodyParser.json());
 
 //ROUTES
 app.use("/api/v1/auth", authRoutes);
-// app.use("/api/v1/booking", bookingRoutes);
+app.use("/api/v1/test", testRoutes);
+app.use("/api/v1/course", courseRoutes);
+app.use("/api/v1/feedback", feedbackRoutes);
 
 
 //REST API

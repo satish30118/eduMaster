@@ -4,10 +4,10 @@ const jwt = require("jsonwebtoken");
 
 const registerController = async (req, res) => {
   try {
-    const { name, email, password, phone, city, answer } = req.body;
+    const { name, email, password, phone, answer } = req.body;
 
     //VALIDATION
-    if (!name || !email || !password || !phone || !city || !answer) {
+    if (!name || !email || !password || !phone  || !answer) {
       return res.status(422).send({
         success: false,
         message: "ALL field are not filled",
@@ -32,7 +32,6 @@ const registerController = async (req, res) => {
       email,
       password: hashedPassword,
       phone,
-      city,
       answer,
     }).save();
     //or newUser.save()
@@ -52,8 +51,7 @@ const registerController = async (req, res) => {
           name: newUser.name,
           email: newUser.email,
           phone: newUser.phone,
-          city:newUser.city,
-          isAdmin: newUser.isAdmin,
+          isEducator: newUser.isEducator,
         },
         token: token,
       });
@@ -111,8 +109,7 @@ const loginController = async (req, res) => {
         name: user.name,
         email: user.email,
         phone: user.phone,
-        city: user.city,
-        isAdmin: user.isAdmin,
+        isEducator: user.isEducator,
       },
       token: token,
     });

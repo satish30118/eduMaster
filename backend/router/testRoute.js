@@ -13,3 +13,5 @@ router.get("/get-single-test/:id", userVerification, getSingleTest);
 router.get("/get-category-base-test/:cat", userVerification, categoryBasedTest);
 router.put("/update-test/:id", userVerification, adminVerification, updateTest);
 router.delete("/delete-test/:id", userVerification, adminVerification, deleteTest);
+
+module.exports = router;

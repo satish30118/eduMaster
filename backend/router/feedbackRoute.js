@@ -26,3 +26,5 @@ router.delete(
   adminVerification,
   deleteFeedback
 );
+
+module.exports = router;
