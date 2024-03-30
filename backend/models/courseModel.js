@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    subject: {
+    courseCategory: {
       type: String,
       required: true,
     },
@@ -19,15 +19,17 @@ const courseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    courseInstructor: {
-        type: String,
-        required: true,
+    courseEducator: [
+      {
+        name: String,
+        subject: String,
+        expre: String,
       },
+    ],
     courseStartDate: {
       type: Date,
       required: true,
     },
- 
   },
   { timestamps: true }
 );

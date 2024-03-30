@@ -7,13 +7,22 @@ const testSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    subject: {
+    testCategory: {
       type: String,
       required: true,
+    },
+    subject: {
+      type: String,
     },
     testDate: {
       type: Date,
       required: true,
+    },
+    testTime: {
+      type: String,
+    },
+    testMarks: {
+      type: Number,
     },
     questions: [
       {
