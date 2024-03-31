@@ -26,6 +26,8 @@ import EducatorRoute from "./educator/educatorPrivateRoute";
 import ErrorPage from "./Components/ErrorPage";
 import Navbar from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+import AboutUs from "./Components/AboutUs/AboutUs";
+import ContactUs from "./Components/ContactUsPage/ContactUs";
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/home" element={<Home />}></Route>
+          <Route exact path="/aboutus" element={<AboutUs />}></Route>
+          <Route exact path="/contactus" element={<ContactUs />}></Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/register" element={<Register />}></Route>
 
