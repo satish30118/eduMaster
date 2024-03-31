@@ -171,21 +171,39 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <div className="Home_Offer_Box">
-          <div className="Home_Offer">
-            <div className="Home_Offer_left">
-              <p>Take a test for free and win up to 50% scholarship</p>
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-                Button
-              </button>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+         {
+          facility.map((element)=>(
+            <Link key={element.id}>
+            <div className={`${element.classes}`}>
+              <span>
+                
+                <img src={element.imgLink} alt="" className="live" />
+                {element.title}
+              </span>
+              <p>{element.content}</p>
             </div>
-            <div className="Home_Offer_right">
-              <img src={trofy} alt="" />
-            </div>
+          </Link>
+          ))
+         }
+        </div>
+      </div>
+      <div className="Home_Offer_Box">
+        <div className="Home_Offer">
+          <div className="Home_Offer_left">
+            <p>Take a test for free and win up to 50% scholarship</p>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+              Button
+            </button>
+          </div>
+          <div className="Home_Offer_right">
+            <img src={trofy} alt="" />
           </div>
         </div>
       </div>
-      <Footer />
+    </div>
+
     </>
   );
 }
