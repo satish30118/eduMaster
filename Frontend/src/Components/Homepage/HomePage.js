@@ -156,11 +156,7 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
          {
           facility.map((element)=>(
-            <Link onClick={()=>{setHome(false);
-              setStudent(true);
-              setEducator(false);
-            
-            }} key={element.id}>
+            <Link key={element.id}>
             <div className={`${element.classes}`}>
               <span>
                 
@@ -172,7 +168,6 @@ export default function Home() {
           </Link>
           ))
          }
-         
         </div>
       </div>
       <div className="Home_Offer_Box">
@@ -188,9 +183,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
     </div>
-    <Footer/>
     </>
   );
 }

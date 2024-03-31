@@ -48,7 +48,7 @@ function App() {
             <Route path="student/profile" element={<StudentProf />}></Route>
             <Route path="student/test-series" element={<StTest/>}></Route>
             <Route path="student/assignment" element={<StAssignment />}></Route>
-            <Route path="student/doubts" element={<DoubtBox />}></Route>
+            <Route path="student/doubts" element={<Chatbox />}></Route>
             <Route path="student/courses" element={<StCourses />}></Route>
             <Route path="student/live-class" element={<Stliveclass />}></Route>
             <Route path="student/playlist" element={<StPlayList />}></Route>
@@ -68,7 +68,7 @@ function App() {
             <Route path="educator/live-class" element={<LiveClass />}></Route>
             <Route
               path="educator/students-doubts"
-              element={<DoubtBox />}
+              element={<Chatbox />}
             ></Route>
             <Route path="educator/playlist" element={<EDPlaylist />}></Route>
             <Route path="educator/feedback" element={<Feedback />}></Route>
