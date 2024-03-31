@@ -74,10 +74,10 @@ function StudentMenu() {
           <i class="fa-solid fa-circle-user" style={{ marginRight: "3px" }}></i>{" "}
           {auth?.user?.name}
         </p>
-        <p>
+        {/* <p>
           <i class="fa-solid fa-envelope" style={{ marginRight: "3px" }}></i>{" "}
           {auth?.user?.email}
-        </p>
+        </p> */}
       </div>
 
       {studentsComp.map((element) => (
