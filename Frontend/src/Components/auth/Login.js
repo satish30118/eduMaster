@@ -36,12 +36,9 @@ function Login() {
         localStorage.setItem("eduMentorInfo", JSON.stringify(res.data));
         setAnimation(false);
 
-        //FORWARD TO DHASHBOARD
-        
-          navigate(
-            `/dashboard/${!auth?.user?.isEducator ? "educator" : "student"}`
-          );
-      
+        //FORWARD TO Home
+
+        navigate(`/`);
 
         return;
       } else {

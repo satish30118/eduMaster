@@ -8,13 +8,13 @@ function StudentMenu() {
   const studentsComp = [
     {
       id: 2,
-      slug: "/dashboard/student",
+      slug: "/dashboard/student/profile",
       title: "My Profile",
       icon: "person",
     },
     {
       id: 3,
-      slug: "/dashboard/student/test",
+      slug: "/dashboard/student/test-series",
       title: "Test Series",
       icon: "text_increase",
     },
@@ -32,7 +32,7 @@ function StudentMenu() {
     },
     {
       id: 6,
-      slug: "/dashboard/student/doubtbox",
+      slug: "/dashboard/student/doubts",
       title: "Ask doubts",
       icon: "comment",
     },
@@ -44,22 +44,17 @@ function StudentMenu() {
     },
     {
       id: 8,
-      slug: "/stfeedback",
+      slug: "/dashboard/student/feedback",
       title: "Feedback",
       icon: "home",
     },
     {
       id: 9,
-      slug: "/stplaylist",
+      slug: "/dashboard/student/playlist",
       title: "My Playlists",
       icon: "video_library",
     },
-    {
-      id: 10,
-      slug: "/stcalendar",
-      title: "My Schedule",
-      icon: "calendar_month",
-    },
+    
   ];
 
   return (
@@ -67,7 +62,7 @@ function StudentMenu() {
       <h2>Student Panel</h2>
       <div className="dashboard-img">
         <img
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+          src="https://www.shutterstock.com/image-photo/young-happy-business-woman-sitting-260nw-2223351415.jpg"
           alt=""
         />
       </div>

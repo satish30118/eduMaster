@@ -102,8 +102,8 @@ function Register() {
       localStorage.setItem("eduMentorInfo", JSON.stringify(res?.data));
       if (res.status === 201) {
         alert(res.data.message);
-        //Forward to dashboard
-          navigate(`/dashboard/${auth?.user?.isEducator ? "educator" : "student"}`);
+        //Forward to Home
+          navigate("/");
         return;
       } else {
         alert(res.data.message);

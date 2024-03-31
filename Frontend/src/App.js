@@ -25,6 +25,7 @@ import StudentRoute from "./student/StudentRoute";
 import EducatorRoute from "./educator/educatorPrivateRoute";
 import ErrorPage from "./Components/ErrorPage";
 import Navbar from "./Components/Navbar/Navbar";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -40,9 +41,11 @@ function App() {
           {/* // USER DASHBOASR // */}
           <Route exact path="/dashboard/" element={<StudentRoute />}>
             <Route path="student" element={<StudentProf />}></Route>
-
+            <Route path="student/profile" element={<StudentProf />}></Route>
+            <Route path="student/test-series" element={<StTest/>}></Route>
             <Route path="student/assignment" element={<StAssignment />}></Route>
-            <Route path="student/course" element={<StCourses />}></Route>
+            <Route path="student/doubts" element={<DoubtBox />}></Route>
+            <Route path="student/courses" element={<StCourses />}></Route>
             <Route path="student/live-class" element={<Stliveclass />}></Route>
             <Route path="student/playlist" element={<StPlayList />}></Route>
             <Route path="student/feedback" element={<StFeedback />}></Route>
@@ -69,6 +72,7 @@ function App() {
 
           <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </>
   );
