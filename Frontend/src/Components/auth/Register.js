@@ -103,7 +103,7 @@ function Register() {
       if (res.status === 201) {
         alert(res.data.message);
         //Forward to dashboard
-        //   navigate(`/dashboard/${auth?.user?.isAdmin ? "admin" : "user"}`);
+          navigate(`/dashboard/${auth?.user?.isEducator ? "educator" : "student"}`);
         return;
       } else {
         alert(res.data.message);

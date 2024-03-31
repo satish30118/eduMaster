@@ -16,9 +16,9 @@ const userVerification = async (req, res, next) => {
 const adminVerification = async (req, res, next) => {
   try {
     const user = await userModel.findOne({ _id: req.user._id });
-    if (!user.isAdmin) {
+    if (!user.isEducator) {
       res.status(401).send({
-        message: "Not an admin",
+        message: "Not an Educator",
       });
     } else {
       next();

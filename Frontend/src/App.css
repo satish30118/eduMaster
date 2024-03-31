@@ -1,0 +1,72 @@
+/*ADMIN DASHBOARD*/
+.dashboard {
+    width: 100%;
+    min-height: 84vh;
+    display: flex;
+}
+
+.dashboard .menu {
+    width: 20%;
+}
+
+.dashboard-img img {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    /* border: 7px solid rgb(38, 57, 122); */
+}
+
+.dashboard .content {
+    width: 80%;
+    height: 85vh;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+
+
+/*MENU PAGE CSS*/
+.dashboard-menu-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(212, 212, 237, 0.733);
+    color: #07478b;
+    width: 100%;
+    z-index: -2000;
+    height: 100%;
+    font-family: "Poppins";
+}
+
+.dashboard-menu-page h2 {
+    font-size: 30px;
+    padding: 10px 0px;
+    font-family: "Poppins";
+    font-weight: 600;
+}
+
+.dashboard-menu-page a {
+    text-decoration: none;
+    color: #07478b;
+    font-weight: 550;
+    font-size: 19px;
+    padding: 7px 20px;
+    width: 100%;
+    margin: 1.6px 0;
+    font-size: 17px;
+
+}
+
+a:hover {
+    background-color: #120870;
+    color: white;
+}
+
+a.active {
+    background-color: #e46c6c;
+    border-radius: 6px;
+    color: white;
+}

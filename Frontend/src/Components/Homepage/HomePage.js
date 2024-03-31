@@ -17,13 +17,12 @@ import question from '../Image/question.png';
 import trofy from '../Image/trofy.svg';
 import './HomePage.css';
 import { Pagination } from 'swiper/modules';
-import useData from '../../context/Context';
 import Footer from '../Footer/Footer';
 
 
 export default function Home() {
   const navigate = useNavigate();
-  const{login,setHome,student,setStudent,setEducator}= useData()
+
   const facility = [
     {
       id:1,
