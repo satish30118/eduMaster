@@ -1,66 +1,100 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Img from "../../assets/educator.png";
 import EducatorMenu from "../EducatorMenu";
+import axios from "axios";
 // import { NavLink } from 'react-router-dom'
 function TestSeries() {
-  const [edTestForm, setTestfrom] = useState(false);
-  const [TestTitle, setTestTitle] = useState();
-  const [testDuration, setDuration] = useState();
-  const [problems, setProblem] = useState();
-  const [problemTypes, setTypes] = useState();
+  const [testForm, setTestForm] = useState(false);
+  const [animation, setAnimation] = useState(false);
+  const [allTest, setAllTest] = useState([]);
+  const [testData, setTestData] = useState({
+    testTitle: "",
+    testCategory: "",
+    testType: "",
+    testDate: "",
+    testTime: "",
+    testMarks: "",
+  });
+
+  const handleData = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setTestData({ ...testData, [name]: value });
+  };
+
+  const addNewTest = async (e) => {
+    e.preventDefault();
+    try {
+      const {
+        testTitle,
+        testCategory,
+        testType,
+        testDate,
+        testTime,
+        testMarks,
+      } = testData;
+
+      if (
+        !testTitle ||
+        !testCategory ||
+        !testType ||
+        !testDate ||
+        !testTime ||
+        !testMarks
+      ) {
+        alert("Fill all data!!");
+        return;
+      }
+
+      setAnimation(true);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/test/add-new-test`,
+        {
+          testTitle,
+          testCategory,
+          testType,
+          testDate,
+          testTime,
+          testMarks,
+        }
+      );
+      setAnimation(false);
+
+      if (res?.status == 201) {
+        alert(res.data.message);
+        setTestForm(false);
+        getAllTest();
+      } else {
+        alert(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      setAnimation(false);
+      alert("Something went wrong, please try again");
+    }
+  };
+
+  const getAllTest = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/test/get-all-test`
+      );
+      setAllTest(res?.data?.allTest);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllTest();
+  }, []);
   const testResults = [
     {
       id: 1,
       testType: "",
     },
   ];
-  const Mytests = [
-    {
-      id: 1,
-      testTitle: "Physics Test",
-      duration: 30,
-      problems: 21,
-      questionType: "MCQ's",
-      New: true,
-    },
-    {
-      id: 2,
-      testTitle: "Physics Test",
-      duration: 30,
-      problems: 21,
-      questionType: "MCQ's",
-      New: true,
-    },
-    {
-      id: 3,
-      testTitle: "Physics Test",
-      duration: 30,
-      problems: 21,
-      questionType: "MCQ's",
-      New: true,
-    },
-  ];
-  const [edTests, setEdTests] = useState([...Mytests]);
 
-  const HandleEdTest = () => {
-    setEdTests((prev) => [
-      ...prev,
-      {
-        id: Date.now(),
-        testTitle: TestTitle,
-        duration: testDuration,
-        problems: problems,
-        questionType: problemTypes,
-        New: false,
-      },
-    ]);
-    setTestfrom(false);
-    setDuration("");
-    setEdTests("");
-    setProblem("");
-    setTypes("");
-    setTestTitle("");
-  };
   return (
     <div className="dashboard">
       <div className="menu">
@@ -109,7 +143,7 @@ function TestSeries() {
               <div className=" h-60 border flex items-center justify-center">
                 <button
                   onClick={() => {
-                    setTestfrom(true);
+                    setTestForm(true);
                   }}
                   className="text-[5rem] border h-32 w-32 flex items-center justify-center rounded-full bg-gray-400 text-white "
                 >
@@ -119,7 +153,7 @@ function TestSeries() {
             </div>
             <div
               className={` ${
-                edTestForm ? "" : "hidden"
+                testForm ? "" : "hidden"
               }   flex items-center justify-center absolute z-[4]  w-full left-0 h-screen top-0 bg-[#403f3fcf] `}
             >
               <div className=" bg-white py-4 justify-between flex-col flex lg:w-[40vw] h-[50vh]">
@@ -131,61 +165,76 @@ function TestSeries() {
                   {/* <div className="">X</div> */}
                 </div>
                 <div className="px-4 space-y-4">
+                  <div className="flex justify-between items-center">
+                    <label htmlFor="">Test Name</label>
+                    <input
+                      onChange={handleData}
+                      value={testData.testTitle}
+                      type="text"
+                      className=" w-[50%] outline-none p-1"
+                      name="testTitle"
+                      id=""
+                    />
+                  </div>
                   <div className="testTitle space-x-2 items-center flex justify-between">
                     <label htmlFor=" " className=" text-[23px] font-semibold ">
-                      Test Title:
+                      Test Subject:
                     </label>
                     <select
-                      name=""
-                      onChange={(e) => {
-                        setTestTitle(e.target.value);
-                      }}
-                      value={TestTitle}
+                      name="testCategory"
+                      onChange={handleData}
+                      value={testData.testCategory}
                       className=" w-[50%] p-1 outline-none focus:outline-none "
                       id=" SelectTitle"
                     >
-                      <option value="">select Title</option>
-                      <option value="Chemistry Test">Chemistry Test </option>
-                      <option value="Physics Test">Physics Test </option>
-                      <option value="Maths Test">Maths Test </option>
+                      <option value="">select Subject</option>
+                      <option value="Chemistry">Chemistry Test </option>
+                      <option value="Physics">Physics Test </option>
+                      <option value="Maths">Maths Test </option>
                     </select>
                   </div>
                   <div className="flex justify-between items-center">
-                    <label htmlFor="">Test Duration</label>
+                    <label htmlFor="">Test Duration in min</label>
                     <input
-                      onChange={(e) => {
-                        setDuration(e.target.value);
-                      }}
-                      value={testDuration}
+                      onChange={handleData}
+                      value={testData.testTime}
                       type="number"
                       className=" w-[50%] outline-none p-1"
                       placeholder="...Time"
-                      name=""
+                      name="testTime"
                       id=""
                     />
                   </div>
                   <div className="flex justify-between  items-center">
                     <label htmlFor="">No of Questions</label>
                     <input
-                      onChange={(e) => {
-                        setProblem(e.target.value);
-                      }}
-                      value={problems}
+                      onChange={handleData}
+                      value={testData.testMarks}
                       type="number"
                       className=" w-[50%] outline-none p-1"
                       placeholder="...type here"
-                      name=""
+                      name="testMarks"
+                      id=""
+                    />
+                  </div>
+                  <div className="flex justify-between  items-center">
+                    <label htmlFor="">Test Date</label>
+                    <input
+                      onChange={handleData}
+                      value={testData.testDate}
+                      type="date"
+                      className=" w-[50%] outline-none p-1"
+                      placeholder="...type here"
+                      name="testDate"
                       id=""
                     />
                   </div>
                   <div className=" flex justify-between items-center">
                     <label htmlFor="">Questions Type</label>
                     <select
-                      onChange={(e) => {
-                        setTypes(e.target.value);
-                      }}
-                      value={problemTypes}
-                      name=" "
+                      onChange={handleData}
+                      value={testData.testType}
+                      name="testType"
                       className="p-1 w-[50%]"
                       id=""
                     >
@@ -200,14 +249,14 @@ function TestSeries() {
                 </div>
                 <div className=" flex items-center space-x-2 justify-center">
                   <button
-                    onClick={HandleEdTest}
+                    onClick={addNewTest}
                     className=" border px-2 hover:bg-gray-900  bg-gray-700 transition-all duration-300 text-white rounded-lg p-1"
                   >
-                    Create New Test
+                    {animation ? "test creating..." : "Create New Test"}
                   </button>
                   <button
                     onClick={() => {
-                      setTestfrom(false);
+                      setTestForm(false);
                     }}
                     className="  border px-2 bg-red-500 hover:bg-red-600 transition-all duration-300  text-white rounded-lg p-1"
                   >
@@ -223,9 +272,9 @@ function TestSeries() {
                 Your All Test:
               </span>
               <div className=" grid  lg:grid-cols-2 gap-y-6 ">
-                {edTests.map((element) => (
+                {allTest.map((element) => (
                   <div
-                    key={element.id}
+                    key={element._id}
                     class="max-w-sm relative   bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                   >
                     <a href="#">
@@ -240,10 +289,11 @@ function TestSeries() {
                       <p class="mb-3 font-normal flex flex-col text-gray-700 dark:text-gray-400">
                         <span>
                           {" "}
-                          Total number of problem: {element.problems}
+                          Total number of problem: {element.testMarks}
                         </span>
-                        <span> Duration: {element.duration} minutes</span>
-                        <span> {element.questionType} type</span>
+                        <span> Subject: {element.testCategory} </span>
+                        <span> Duration: {element.testTime} minutes</span>
+                        <span> Question Type : {element.testType}</span>
                       </p>
                       <a
                         href="#"

@@ -7,6 +7,7 @@ const authRoutes = require("./router/authRoute");
 const testRoutes = require("./router/testRoute");
 const courseRoutes = require("./router/courseRoute");
 const feedbackRoutes = require("./router/feedbackRoute");
+const assignmentRoutes = require("./router/assignmentRoute");
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -31,6 +32,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/feedback", feedbackRoutes);
+app.use("/api/v1/assignment", assignmentRoutes);
 
 
 //REST API

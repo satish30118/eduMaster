@@ -64,6 +64,8 @@ function EDCourses() {
 
       if (res?.status == 201) {
         alert(res.data.message);
+        getAllCourse()
+        setAssignmentForm(false)
       } else {
         alert(res.data.message);
       }

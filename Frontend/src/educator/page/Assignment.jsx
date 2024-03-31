@@ -1,49 +1,85 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Img from "../../assets/educator.png";
 import EducatorMenu from "../EducatorMenu";
+import axios from "axios";
 // import { NavLink } from 'react-router-dom'
 function TestSeries() {
   const [assignmentForm, setAssignmentForm] = useState(false);
-  const [AssignTitle, setAssignTitle] = useState();
-  const [AssignDeadline, setAssignDeadline] = useState();
-  const [Assignproblems, setAssignProblem] = useState();
-  const [problemTypes, setTypes] = useState();
-  const testResults = [
-    {
-      id: 1,
-      testType: "",
-    },
-  ];
-  const EdAssignment = [
-    {
-      id: 1,
-      testTitle: "Physics Assignment",
-      deadline: 30,
-      problems: 21,
-      questionType: "MCQ's",
-      New: true,
-    },
-  ];
-  const [edAssignment, setedAssignment] = useState([...EdAssignment]);
+  const [animation, setAnimation] = useState(false);
+  const [allAssignment, setAllAssignment] = useState([]);
+  const [assData, setAssData] = useState({
+    assTitle: "",
+    assCategory: "",
+    assDeadline: "",
+    assQuestion: "",
+    assType: "",
+  });
 
-  const HandleEdTest = () => {
-    setedAssignment((prev) => [
-      ...prev,
-      {
-        id: Date.now(),
-        testTitle: AssignTitle,
-        deadline: AssignDeadline,
-        problems: Assignproblems,
-        questionType: problemTypes,
-        New: true,
-      },
-    ]);
-    setAssignmentForm(false);
-    setAssignDeadline("");
-    setAssignProblem("");
-    setTypes("");
-    setAssignTitle("");
+  const handleData = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setAssData({ ...assData, [name]: value });
   };
+
+  const addNewAssignment = async (e) => {
+    e.preventDefault();
+    try {
+      const { assTitle, assCategory, assDeadline, assQuestion, assType } =
+        assData;
+
+      if (
+        !assTitle ||
+        !assCategory ||
+        !assDeadline ||
+        !assQuestion ||
+        !assType
+      ) {
+        alert("Fill all data!!");
+        return;
+      }
+
+      setAnimation(true);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/assignment/add-new-assignment`,
+        {
+          assTitle,
+          assCategory,
+          assDeadline,
+          assQuestion,
+          assType,
+        }
+      );
+      setAnimation(false);
+
+      if (res?.status == 201) {
+        alert(res.data.message);
+        setAssignmentForm(false);
+        getAllAssignment();
+      } else {
+        alert(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      setAnimation(false);
+      alert("Something went wrong, please try again");
+    }
+  };
+
+  const getAllAssignment = async () => {
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/assignment/get-all-assignment`
+      );
+      setAllAssignment(res?.data?.allAssignment);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getAllAssignment();
+  }, []);
+
   return (
     <div>
       <div className="dashboard">
@@ -51,10 +87,7 @@ function TestSeries() {
           <EducatorMenu />
         </div>
         <div className="content">
-          {" "}
           <div className="  p-2  py-10 lg:space-y-2">
-          
-
             <div className="Add a test">
               <div className=" space-y-4">
                 <span className=" text-3xl font-semibold text-slate-500  ">
@@ -85,70 +118,67 @@ function TestSeries() {
                     {/* <div className="">X</div> */}
                   </div>
                   <div className="px-4 space-y-4">
+                    <div className="flex justify-between  items-center">
+                      <label htmlFor="">Assignment Title</label>
+                      <input
+                        onChange={handleData}
+                        value={assData.assTitle}
+                        type="text"
+                        className=" w-[50%] outline-none p-1"
+                        name="assTitle"
+                        id=""
+                      />
+                    </div>
                     <div className="testTitle space-x-2 items-center flex justify-between">
                       <label
                         htmlFor=" "
                         className=" text-[23px] font-semibold "
                       >
-                        Assignment Title:
+                        Assignment Subject:
                       </label>
                       <select
-                        name=""
-                        onChange={(e) => {
-                          setAssignTitle(e.target.value);
-                        }}
-                        value={AssignTitle}
+                        name="assCategory"
+                        onChange={handleData}
+                        value={assData.assCategory}
                         className=" w-[50%] p-1 outline-none focus:outline-none "
                         id=" SelectTitle"
                       >
                         <option value="">select Title</option>
-                        <option value="Chemistry Assignment">
-                          Chemistry Assignment{" "}
-                        </option>
-                        <option value="Physics Assignment">
-                          Physics Assignment{" "}
-                        </option>
-                        <option value="Maths Assignment">
-                          Maths Assignment{" "}
-                        </option>
+                        <option value="Chemistry">Chemistry Assignment </option>
+                        <option value="Physics">Physics Assignment </option>
+                        <option value="Maths">Maths Assignment </option>
                       </select>
                     </div>
                     <div className="flex justify-between items-center">
                       <label htmlFor="">Assignment Deadline</label>
                       <input
-                        onChange={(e) => {
-                          setAssignDeadline(e.target.value);
-                        }}
-                        value={AssignDeadline}
+                        onChange={handleData}
+                        value={assData.assDeadline}
                         type="date"
                         className=" w-[50%] outline-none p-1"
                         placeholder="...Time"
-                        name=""
+                        name="assDeadline"
                         id=""
                       />
                     </div>
                     <div className="flex justify-between  items-center">
                       <label htmlFor="">No of Questions</label>
                       <input
-                        onChange={(e) => {
-                          setAssignProblem(e.target.value);
-                        }}
-                        value={Assignproblems}
+                        onChange={handleData}
+                        value={assData.assQuestion}
                         type="number"
                         className=" w-[50%] outline-none p-1"
                         placeholder="...type here"
-                        name=""
+                        name="assQuestion"
                         id=""
                       />
                     </div>
                     <div className=" flex justify-between items-center">
                       <label htmlFor="">Questions Type</label>
                       <select
-                        onChange={(e) => {
-                          setTypes(e.target.value);
-                        }}
-                        value={problemTypes}
-                        name=" "
+                        onChange={handleData}
+                        value={assData.assType}
+                        name="assType"
                         className="p-1 w-[50%]"
                         id=""
                       >
@@ -163,10 +193,10 @@ function TestSeries() {
                   </div>
                   <div className=" flex items-center space-x-2 justify-center">
                     <button
-                      onClick={HandleEdTest}
+                      onClick={addNewAssignment}
                       className=" border px-2 hover:bg-gray-900  bg-gray-700 transition-all duration-300 text-white rounded-lg p-1"
                     >
-                      Create Assignment
+                      {animation ? "Creating... " : "Create Assignment"}
                     </button>
                     <button
                       onClick={() => {
@@ -186,9 +216,9 @@ function TestSeries() {
                   Your All Assignment:
                 </span>
                 <div className=" grid  lg:grid-cols-2 gap-y-6 ">
-                  {edAssignment.map((element) => (
+                  {allAssignment.map((element) => (
                     <div
-                      key={element.id}
+                      key={element._id}
                       class="max-w-sm relative   bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
                     >
                       <a href="#">
@@ -197,16 +227,18 @@ function TestSeries() {
                       <div class="p-5">
                         <a href="#">
                           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                            {element.testTitle}
+                            {element.assTitle}
                           </h5>
                         </a>
                         <p class="mb-3 font-normal flex flex-col text-gray-700 dark:text-gray-400">
+                          <span>Subject: {element.assCategory}</span>
                           <span>
                             {" "}
-                            Total number of problem: {element.problems}
+                            Total number of problem: {element.assQuestion}
                           </span>
-                          <span> Deadline: {element.deadline}</span>
-                          <span> {element.questionType} type</span>
+
+                          <span>Question Type: {element.assType}</span>
+                          <span> Deadline: {element.assDeadline}</span>
                         </p>
                         <a
                           href="#"

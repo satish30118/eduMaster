@@ -5,21 +5,19 @@ const createTest = async (req, res) => {
     const {
       testTitle,
       testCategory,
-      subject,
+      testType,
       testDate,
       testTime,
       testMarks,
-      questions,
     } = req.body;
 
     const newTest = await testModel({
       testTitle,
       testCategory,
-      subject,
+      testType,
       testDate,
       testTime,
       testMarks,
-      questions,
     }).save();
 
     if (!newTest) {
@@ -50,11 +48,11 @@ const updateTest = async (req, res) => {
     const {
       testTitle,
       testCategory,
-      subject,
       testDate,
       testTime,
       testMarks,
       questions,
+      test
     } = req.body;
     const { id } = req.params;
     const updatedTest = await testModel.findByIdAndUpdate(

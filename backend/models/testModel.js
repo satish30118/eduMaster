@@ -11,11 +11,11 @@ const testSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    subject: {
+    testType: {
       type: String,
     },
     testDate: {
-      type: Date,
+      type: String,
       required: true,
     },
     testTime: {
@@ -24,19 +24,6 @@ const testSchema = new mongoose.Schema(
     testMarks: {
       type: Number,
     },
-    questions: [
-      {
-        question: {
-          type: String,
-        },
-        options: {
-          opt1: String,
-          opt2: String,
-          opt3: String,
-          opt4: String,
-        },
-      },
-    ],
   },
   { timestamps: true }
 );
