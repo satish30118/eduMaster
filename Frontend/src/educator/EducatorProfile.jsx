@@ -1,6 +1,6 @@
+
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import ProfileImg from '../assets/profilesample.png'
 import educatorprof from "../assets/educator.png";
 import EducatorMenu from "./EducatorMenu";
 import coverphoto from "../assets/CoverImg.jpg";
@@ -8,7 +8,7 @@ import profiileImg from "../assets/profileimg.avif";
 import { useAuth } from "../context/authContext";
 
 function EducatorProfile() {
-  const navigate = useNavigate();
+
   const [auth, setAuth] = useAuth();
 
   return (
