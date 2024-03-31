@@ -9,18 +9,18 @@ function Footer() {
                     <div class="mb-6 md:mb-0">
                         <a href="https://flowbite.com/" class="flex items-center">
                             <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
-                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">Flowbite</span>
+                            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">EduMentor</span>
                         </a>
                     </div>
                     <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                         <div>
-                            <h2 class="mb-6 text-sm font-semibold text-black uppercase dark:text-black">Resources</h2>
+                            <h2 class="mb-6 text-sm font-semibold text-black uppercase dark:text-black">EduMentor Centre</h2>
                             <ul class="text-black dark:text-black font-medium">
                                 <li class="mb-4">
-                                    <a href="https://flowbite.com/" class="hover:underline">Flowbite</a>
+                                    <a href="https://flowbite.com/" class="hover:underline">Kota IIT JEE</a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
+                                    <a href="https://tailwindcss.com/" class="hover:underline">Kota NEET UG</a>
                                 </li>
                             </ul>
                         </div>
@@ -28,10 +28,10 @@ function Footer() {
                             <h2 class="mb-6 text-sm font-semibold text-black uppercase dark:text-black">Follow us</h2>
                             <ul class="text-black dark:text-black font-medium">
                                 <li class="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
+                                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Facebook</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Instagram</a>
                                 </li>
                             </ul>
                         </div>
@@ -50,7 +50,7 @@ function Footer() {
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm text-black sm:text-center dark:text-black">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.
+                    <span class="text-sm text-black sm:text-center dark:text-black">© 2023 <a href="https://flowbite.com/" class="hover:underline">EduMentor</a>. All Rights Reserved.
                     </span>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
                         <a href="#" class="text-black hover:text-black dark:hover:text-black">
