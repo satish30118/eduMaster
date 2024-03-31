@@ -3,68 +3,38 @@ import { NavLink, useNavigate } from "react-router-dom";
 // import ProfileImg from '../assets/profilesample.png'
 import educatorprof from "../assets/educator.png";
 import EducatorMenu from "./EducatorMenu";
+import coverphoto from '../assets/CoverImg.jpg'
+import profiileImg from '../assets/profileimg.avif'
+import { useAuth } from "../context/authContext";
+
 
 function EducatorProfile() {
   const navigate = useNavigate();
-  const edCourses = [
-    {
-      id: 1,
-      aboutcourse:
-        "This is will help you to achieve your goal within time limit",
-      active: false,
-      endsDate: "2026",
-      batchTitle: "Arjuna Batch",
-      imgsource: educatorprof,
-    },
-    {
-      id: 1,
-      aboutcourse:
-        "This is will help you to achieve your goal within time limit",
-      active: false,
-      endsDate: "2026",
-      batchTitle: "Arjuna Batch",
-      imgsource: educatorprof,
-    },
-    {
-      id: 1,
-      aboutcourse:
-        "This is will help you to achieve your goal within time limit",
-      active: false,
-      endsDate: "2026",
-      batchTitle: "Arjuna Batch",
-      imgsource: educatorprof,
-    },
-    {
-      id: 1,
-      aboutcourse:
-        "This is will help you to achieve your goal within time limit",
-      active: false,
-      endsDate: "2026",
-      batchTitle: "Arjuna Batch",
-      imgsource: educatorprof,
-    },
-  ];
 
   return (
     <>
-      <div className="dashboard">
-        <div className="menu">
+      <div className="dashboard  ">
+        <div className={`  menu`}>
           <EducatorMenu />
         </div>
-        <div className="content">
-          <div className=" overflow-y-scroll border border-green-500  w-[100%] p-2">
+        <div className="lg:w-[80%] w-full ">
+          <div className=" overflow-y-scroll border  w-[100%] lg:p-2">
             <div className="">
               <div className=" relative">
-                <div className=" h-52 border cover">cover</div>
-                <div className=" h-32 w-32 border flex items-center justify-center border-blue-600 border-[4px] bg-gray-200 rounded-full absolute top-32 right-24  profile">
-                  <span className=" right-0    text-2xl p-2 h-10 w-10 rounded-full  material-symbols-rounded flex items-center justify-center text-white bg-gray-400 bottom-1 absolute">
-                    photo_camera
-                  </span>
+                <div className=" lg:h-52 border overflow-hidden cover">
+                  <img src={coverphoto} className=" opacity-55 " alt="" />
+
                 </div>
+                <div className=" lg:h-32 lg:w-32 h-16 w-16 border overflow-hidden  flex items-center justify-center border-blue-600 border-[2px] lg:border-[4px] bg-gray-200 rounded-full absolute lg:top-32 lg:right-24 right-3 top-20  profile">
+                  <img src={profiileImg} className="  " alt="" />
+                 
+                </div>
+               
               </div>
-              <div className=" p-4 space-y-3">
-                <div className=" flex-col  flex ">
-                  <span className=" text-3xl font-semibold">Teacher'Name</span>
+
+              <div className=" lg:p-4 lg:space-y-3">
+                <div className=" flex-col border-b-2 flex px-4 py-2 ">
+                  <span className=" lg:text-3xl font-semibold">Sameera Mam</span>
                   <span className=" flex flex-col">
                     <span className=" space-x-2">
                       {" "}
@@ -75,15 +45,11 @@ function EducatorProfile() {
                   </span>
                 </div>
 
-                <div className=" flex  justify-between ">
-                  <div className=" space-y-2">
-                    <h1 className=" text-2xl  text-gray-500">Experience</h1>
-                    {/* {
-            experienceList.map((ele)=>(
-              <li key={ele.id}> {ele.content} </li>
-            ))
-          } */}
-                    <ul className=" list-decimal px-4 text-[20px]">
+                <div className=" grid lg:grid-cols-3  ">
+                  <div className=" px-4 py-2  lg:space-y-2 lg:border-b-0 border-b-2">
+                    <h1 className=" lg:text-2xl font-semibold  text-gray-500">Experience</h1>
+
+                    <ul className=" list-decimal px-4 lg:px-0 text-[19px] lg:text-[19px] ">
                       <li> 2 years worked at unacedmy </li>
                       <li> 2 years worked at unacedmy </li>
                       <li> 2 years worked at unacedmy </li>
@@ -91,15 +57,16 @@ function EducatorProfile() {
                       <li> 2 years worked at unacedmy </li>
                     </ul>
                   </div>
-                  <div className=" space-y-2">
-                    <div className=" flex items-center space-x-2">
-                      <span className=" text-3xl text-blue-600 flex items-center material-symbols-rounded">
+
+                  <div className=" px-4 py-2  lg:space-y-2 lg:border-b-0 border-b-2">
+                    <div className=" flex space-x-2">
+                      <span className=" lg:text-3xl text-blue-600 flex items-center material-symbols-rounded">
                         school
                       </span>
-                      <h1 className=" text-2xl  text-gray-500">Educations</h1>
+                      <h1 className=" lg:text-2xl font-semibold  text-gray-500">Educations</h1>
                     </div>
 
-                    <ul className=" list-decimal px-4 text-[20px]">
+                    <ul className=" list-decimal px-4 lg:px-0 lg:text-[19px] ">
                       <li> 2 years worked at unacedmy </li>
                       <li> 2 years worked at unacedmy </li>
                       <li> 2 years worked at unacedmy </li>
@@ -107,68 +74,62 @@ function EducatorProfile() {
                       <li> 2 years worked at unacedmy </li>
                     </ul>
                   </div>
-                </div>
 
-                <div className=" ">
-                  <ul className=" py-4 space-y-3">
-                    <NavLink
-                      to="/edcourses"
-                      className=" bg-gray-400 shadow-lg text-white px-2 rounded-xl p-2 "
-                    >
-                      My Active Courses
-                    </NavLink>
+                  <div className=" px-4 py-2  lg:space-y-2 lg:border-b-0 border-b-2">
+                    <h1 className=" lg:text-2xl font-semibold  text-gray-500">Address</h1>
 
-                    <div className="  grid lg:grid-cols-2 gap-y-3 flex items-center justify-center">
-                      {edCourses.map((element) => (
-                        <NavLink key={element.id} className=" ">
-                          <div className="max-w-sm relative bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                            <i className="bg-[red] rounded-xl right-0  px-1 absolute font-bold text-white ">
-                              {element.active ? "New" : "has ended"}{" "}
-                            </i>
-                            <a href="#">
-                              <img
-                                className="rounded-t-lg"
-                                src={element.imgsource}
-                                alt=""
-                              />
-                            </a>
-                            <div className="p-5">
-                              <a href="#">
-                                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                  {element.batchTitle}
-                                </h5>
-                              </a>
-                              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                {element.aboutcourse}
-                              </p>
-                              <a
-                                href="#"
-                                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                              >
-                                {`ends in ${element.endsDate}`}
-                                <svg
-                                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                                  aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  fill="none"
-                                  viewBox="0 0 14 10"
-                                >
-                                  <path
-                                    stroke="currentColor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                                  />
-                                </svg>
-                              </a>
-                            </div>
-                          </div>
-                        </NavLink>
-                      ))}
+                    <ul className=" list-decimal px-4 lg:px-0 lg:text-[19px] ">
+                      <span className=" flex items-center" > <span className=" lg:text-3xl text-red-600 flex items-center material-symbols-rounded">
+                        home_pin
+                      </span>
+                        <span> John Smith</span>
+                      </span>
+                      123 Main Street
+                      Anytown, State 12345
+                      Country
+                    </ul>
+                  </div>
+
+                  <div className=" px-4 py-2  lg:space-y-2 lg:border-b-0 border-b-2">
+                    <div className=" flex space-x-2 py-2">
+
+                      <h1 className=" lg:text-2xl font-semibold  text-gray-500">Contact Me</h1>
                     </div>
-                  </ul>
+
+                    <ul className=" px-4 lg:px-0 flex justify-between flex-row space-x-2 lg:text-[24px] ">
+                      <li className=" border h-8 flex items-center justify-center rounded-lg  shadow-lg w-8 bg-slate-200 ">
+                        <i className="text-blue-700 fa-brands text-[26px] fa-facebook">
+                        </i>
+                      </li>
+                      <li className=" border h-8 flex items-center justify-center rounded-lg  shadow-lg w-8 bg-slate-200 ">
+                        <i className="text-blue-700 fa-solid text-[26px] fa-envelope">
+
+                        </i>
+                      </li>
+                      <li className=" border h-8 flex items-center justify-center rounded-lg  shadow-lg w-8 bg-slate-200 ">
+                        <i className="text-blue-700 fa-brands text-[26px] fa-instagram">
+
+                        </i>
+                      </li>
+                      <li className=" border h-8 flex items-center justify-center rounded-lg  shadow-lg w-8 bg-slate-200 ">
+                        <i className="text-blue-700 fa-brands text-[26px] fa-twitter">
+
+                        </i>
+                      </li>
+
+                    </ul>
+                  </div>
+
+
+
+
+
+
+
                 </div>
+
+
+
               </div>
             </div>
           </div>
