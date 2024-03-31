@@ -170,6 +170,7 @@ body {
 }
 
 .col_item {
+  height: 100%;
   font-size: 1.5rem;
   font-family: Quicksand;
   font-weight: 600;
