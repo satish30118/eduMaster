@@ -60,12 +60,12 @@
 
 }
 
-a:hover {
+.dashboard .menu a:hover {
     background-color: #120870;
     color: white;
 }
 
-a.active {
+.dashboard .menu a.active {
     background-color: #e46c6c;
     border-radius: 6px;
     color: white;

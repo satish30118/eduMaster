@@ -16,18 +16,14 @@ const courseSchema = new mongoose.Schema(
       required: true,
     },
     courseDuration: {
-      type: String,
+      type: Number,
       required: true,
     },
-    courseEducator: [
-      {
-        name: String,
-        subject: String,
-        expre: String,
-      },
-    ],
+    courseEducator:{
+      type: String,
+    },
     courseStartDate: {
-      type: Date,
+      type: String,
       required: true,
     },
   },
