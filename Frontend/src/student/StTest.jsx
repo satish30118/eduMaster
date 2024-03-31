@@ -28,7 +28,7 @@ const StTest = () => {
             <div className=" text-2xl font-semibold text-gray-500">
               My Assignment:
             </div>
-            <div className=" grid lg:grid-cols-3 lg:gap-2">
+            <div className=" grid lg:grid-cols-3 lg:gap-2 gap-y-3">
               {/* card  */}
               {allTest.map((test) => (
                 <div key={test._id} className="max-w-sm p-6 relative  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

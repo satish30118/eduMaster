@@ -31,7 +31,7 @@ const StCourses = () => {
             <div className=" text-2xl font-semibold text-gray-500">
               Courses:
             </div>
-            <div className=" grid lg:grid-cols-3 lg:gap-x-2">
+            <div className=" grid lg:grid-cols-3 lg:gap-x-2 gap-y-3">
               {/* card  */}
               {allCourse?.map((element) => (
                 <div key={element._id} className="max-w-sm p-6 relative  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

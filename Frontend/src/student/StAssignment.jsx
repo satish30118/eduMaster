@@ -29,7 +29,7 @@ const StAssignment = () => {
             <div className=" text-2xl font-semibold text-gray-500">
               My Assignment:
             </div>
-            <div className=" grid lg:grid-cols-3 lg:gap-3">
+            <div className=" grid lg:grid-cols-3 lg:gap-3 gap-y-3">
               {/* card  */}
               {allAssignment.map((element) => (
                 <div
