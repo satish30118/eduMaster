@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import "../App.css"
 
 const EducatorMenu = () => {
   const [auth, setAuth] = useAuth();
+  const [hide, setHide] = useState(false)
+
+  useEffect(()=>{
+   if( window.innerWidth < 600){
+    console.log(window.innerWidth);
+    setHide(true);
+   }
+  },[])
   const educatorComp = [
     {
       id: 2,
@@ -48,16 +56,18 @@ const EducatorMenu = () => {
       title: "Feedback",
       icon: "home",
     },
-    {
-      id: 9,
-      slug: "/dashboard/educator/playlist",
-      title: "My Playlists",
-      icon: "video_library",
-    },
+    // {
+    //   id: 9,
+    //   slug: "/dashboard/educator/playlist",
+    //   title: "My Playlists",
+    //   icon: "video_library",
+    // },
   ];
+ 
   return (
     <>
-      <div className="dashboard-menu-page" style={{ overflow: "auto" }}>
+    
+      <div className="dashboard-menu-page" id="m-toggle" style={{ overflow: "auto"}}>
         <h2>Educator Panel</h2>
         <div className="dashboard-img">
           <img
@@ -76,10 +86,10 @@ const EducatorMenu = () => {
             ></i>{" "}
             {auth?.user?.name}
           </p>
-          <p>
+          {/* <p>
             <i class="fa-solid fa-envelope" style={{ marginRight: "3px" }}></i>{" "}
             {auth?.user?.email}
-          </p>
+          </p> */}
         </div>
 
         {educatorComp.map((element) => (
@@ -91,6 +101,7 @@ const EducatorMenu = () => {
           </NavLink>
         ))}
       </div>
+      
     </>
   );
 };

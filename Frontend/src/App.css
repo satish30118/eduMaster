@@ -25,6 +25,9 @@
     position: relative;
 }
 
+.content ::-webkit-scrollbar {
+    display: none;
+}
 
 
 
@@ -69,4 +72,51 @@
     background-color: #e46c6c;
     border-radius: 6px;
     color: white;
+}
+
+@media only screen and (max-width:1400px) {
+    .dashboard .content {
+        width: 70%;
+    }
+
+    .dashboard .menu {
+        width: 30%;
+    }
+}
+
+
+
+@media only screen and (max-width:1000px) {
+    .dashboard .content {
+        width: 65%;
+    }
+
+    .dashboard .menu {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .dashboard .content {
+        width: 60%;
+    }
+
+    .dashboard .menu {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .dashboard .content {
+        width: 100%;
+        height: auto;
+    }
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .dashboard .menu {
+        width: 100%;
+    }
 }

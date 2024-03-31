@@ -2,16 +2,18 @@ const feedbackModel = require("../models/feedbackmodel");
 
 const createFeedback = async (req, res) => {
   try {
-    const { studentName, educatorId, courseTitle, feedback } = req.body;
+    const { studentName, studentEmail, educatorName, courseTitle, feedback } =
+      req.body;
 
     const newFeedback = await feedbackModel({
       studentName,
-      educatorId,
+      studentEmail,
+      educatorName,
       courseTitle,
       feedback,
     }).save();
 
-    if (!newFeedback ) {
+    if (!newFeedback) {
       res.status(400).send({
         success: false,
         message: "Feedback can't submitted",
@@ -33,14 +35,40 @@ const createFeedback = async (req, res) => {
   }
 };
 
+// GET  FEEDBACK BASED ON TEACHER ID
+const getAllFeedback = async (req, res) => {
+  try {
+    const allFeedback = await feedbackModel
+      .find({})
+      .sort({ createdAt: -1 });
 
+    if (!allFeedback) {
+      res.status(400).send({
+        success: false,
+        message: "feedback can't get",
+      });
+      return;
+    }
+    res.status(200).send({
+      success: true,
+      message: "All feedback",
+      allFeedback,
+    });
+  } catch (error) {
+    console.log(`${error}`);
+    res.status(500).send({
+      success: false,
+      message: "Server Problem, Please try again!",
+    });
+  }
+};
 
 /* GET  FEEDBACK BASED ON TEACHER ID*/
 const teacherBasedFeedback = async (req, res) => {
   try {
     const { educatorId } = req.params;
     const teacherFeedback = await feedbackModel
-      .find({ educatorId})
+      .find({ educatorId })
       .sort({ createdAt: -1 });
 
     if (!teacherFeedback) {
@@ -93,4 +121,5 @@ module.exports = {
   createFeedback,
   deleteFeedback,
   teacherBasedFeedback,
+  getAllFeedback,
 };
