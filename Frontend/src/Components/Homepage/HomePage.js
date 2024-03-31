@@ -160,7 +160,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {facility.map((element) => (
               <Link key={element.id}>
-                <div className={`${element.classes}`}>
+                <div className="col_item">
                   <span>
                     <img src={element.imgLink} alt="" className="live" />
                     {element.title}
@@ -170,23 +170,6 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-         {
-          facility.map((element)=>(
-            <Link key={element.id}>
-            <div className={`${element.classes}`}>
-              <span>
-                
-                <img src={element.imgLink} alt="" className="live" />
-                {element.title}
-              </span>
-              <p>{element.content}</p>
-            </div>
-          </Link>
-          ))
-         }
         </div>
       </div>
       <div className="Home_Offer_Box">
@@ -202,7 +185,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
     </>
   );
 }
