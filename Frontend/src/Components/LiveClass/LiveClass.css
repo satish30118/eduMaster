@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.LiveClass_Box {
+    width: 100vw;
+    display: flex;
+    padding: 5% 10%;
+    background-color: #eee;
+}
+
+.LiveClass_Box_left {
+    width: 30%;
+    height: 100%;
+    padding: 2%;
+    background-color: #fff;
+    border-radius: 12px;
+
+    p {
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-family: Quicksand;
+        margin-top: 5%;
+
+        span {
+            border-radius: 50%;
+            padding: 1%;
+        }
+    }
+}
+
+.LiveClass_Box_right {
+    width: 70%;
+    height: 100%;
+}
+
+.maths {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin: 2%;
+}
+
+.LiveClass_Box_right {
+    padding: 0 4%;
+}
+
+.LiveClass_Box_right_first {
+    width: 100%;
+    height: 40%;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 2%;
+    margin-bottom: 4%;
+
+    p {
+        font-size: 2rem;
+        font-family: Quicksand;
+        font-weight: bolder;
+    }
+
+    h1 {
+        font-size: 1rem;
+        font-family: Quicksand;
+        color: #625f5f;
+    }
+}
+
+.button_box {
+    border-radius: 20px 10px;
+    padding: 3px 10px;
+    margin-right: 2%;
+    background-color: rgb(162, 162, 162);
+}
+
+.LiveClass_Box_right_second {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 2%;
+
+    p {
+        font-size: 2rem;
+        font-family: Quicksand;
+        font-weight: bolder;
+    }
+
+    h1 {
+        font-size: 1rem;
+        font-family: Quicksand;
+        color: #625f5f;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        font-family: Quicksand;
+        font-weight: bolder;
+        color: #504f4f;
+    }
+}
+
+.card_elements {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card_part {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #eee;
+    padding: 1%;
+    border-radius: 12px;
+}
+
+.card_img {
+    width: 100%;
+    height: 50%;
+    background-color: rgb(255, 255, 255);
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
+}
+
+.card_text {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5%;
+
+    p {
+        font-size: 0.9rem;
+        font-family: Quicksand;
+        font-weight: 500;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        font-family: Quicksand;
+        font-weight: 500;
+    }
+}
+
+.live_png {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+.live_text {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_playlist {
+    width: 200px;
+    height: 100px;
+    border-radius: 12px;
+    border-left: 7px rgb(0, 132, 255) solid;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5%;
+
+    h1 {
+        font-size: 1rem;
+        font-family: Quicksand;
+    }
+
+    p {
+        font-size: 1rem;
+        font-family: Quicksand;
+    }
+}
+
+@media screen and (max-width:1196px) {
+
+
+    .LiveClass_Box_left {
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .maths {
+        width: 20px;
+        height: 20px;
+    }
+
+    .LiveClass_Box_right_first {
+        p {
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 0.8rem;
+        }
+    }
+
+    .LiveClass_Box_right_second {
+
+        p {
+            font-size: 1.5rem;
+        }
+
+        h1 {
+            font-size: 0.8rem;
+        }
+
+        h2 {
+            font-size: 1rem;
+        }
+    }
+
+    .card_text {
+
+        p {
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            font-size: 1rem;
+        }
+    }
+
+    .live_png {
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .card_playlist {
+        h1 {
+            font-size: 0.8rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+        }
+    }
+}
+
+
+@media screen and (max-width:790px) {
+
+
+    .LiveClass_Box_left {
+        p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .maths {
+        width: 15px;
+        height: 15px;
+    }
+
+    .LiveClass_Box_right_first {
+        p {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 0.7rem;
+        }
+    }
+
+    .button_box {
+        border-radius: 20px 10px;
+        padding: 2px 5px;
+        margin-right: 2%;
+        font-size: 0.8rem;
+    }
+
+    .LiveClass_Box_right_second {
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 0.7rem;
+        }
+
+        h2 {
+            font-size: 0.8rem;
+        }
+    }
+
+    .card_text {
+
+        p {
+            font-size: 0.7rem;
+        }
+
+        h1 {
+            font-size: 0.8rem;
+        }
+    }
+
+    .live_png {
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .card_playlist {
+        h1 {
+            font-size: 0.7rem;
+        }
+
+        p {
+            font-size: 0.7rem;
+        }
+    }
+
+    .card_part {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+
+@media screen and (max-width:630px) {
+
+    .LiveClass_Box {
+        padding: 5% 2%;
+    }
+}
+
+@media screen and (max-width:485px) {
+
+
+    .LiveClass_Box_left {
+        p {
+            font-size: 0.7rem;
+        }
+    }
+
+    .maths {
+        width: 12px;
+        height: 12px;
+    }
+
+    .LiveClass_Box_right_first {
+        p {
+            font-size: 1.1rem;
+        }
+
+        h1 {
+            font-size: 0.6rem;
+        }
+    }
+
+    .button_box {
+        font-size: 0.7rem;
+    }
+}
