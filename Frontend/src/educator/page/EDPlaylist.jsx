@@ -2,6 +2,7 @@ import React from 'react'
 import EducatorMenu from '../EducatorMenu'
 
 function EDPlaylist() {
+ 
   return (
     <div>
       <div>
@@ -9,7 +10,11 @@ function EDPlaylist() {
         <div className="menu">
           <EducatorMenu />
         </div>
-        <div className="content">ive Class </div>
+        <div className="content">
+
+       
+          
+           </div>
       </div>
     </div>
     </div>

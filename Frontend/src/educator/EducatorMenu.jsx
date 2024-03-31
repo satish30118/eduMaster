@@ -57,7 +57,7 @@ const EducatorMenu = () => {
   ];
   return (
     <>
-      <div className="dashboard-menu-page" style={{ overflow: "auto" }}>
+      <div className="dashboard-menu-page bg-white border-r-[2px]" style={{ overflow: "auto" }}>
         <h2>Educator Panel</h2>
         <div className="dashboard-img">
           <img
