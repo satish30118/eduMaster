@@ -53,27 +53,7 @@ function TestSeries() {
         <div className="content">
           {" "}
           <div className="  p-2  py-10 lg:space-y-2">
-            {/* <div className="Test result">
-        <div className="">
-          <span className=' text-3xl font-semibold text-slate-500'>Test Results:</span>
-          <div className=" p-1">
-
-            <a href="#" className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-              <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={Img} alt="" />
-              <div className="flex flex-col justify-between p-4 leading-normal">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <div className="">
-                  <button className=' bg-blue-700  text-white rounded-xl p-2 px-4'>Check Out The results</button>
-                </div>
-              </div>
-            </a>
-
-          </div>
-
-        </div>
-
-      </div> */}
+          
 
             <div className="Add a test">
               <div className=" space-y-4">
