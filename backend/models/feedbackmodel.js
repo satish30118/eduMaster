@@ -3,17 +3,22 @@ const mongoose = require("mongoose");
 const feedbackSchema = new mongoose.Schema(
   {
     studentName: {
-      type : String,
-      required : true,
+      type: String,
+      required: true,
     },
-    educatorId: {
-      type : String,
-      required : true,
+    studentEmail: {
+      type: String,
+      required: true,
+    },
+    educatorName: {
+      type: String,
+      required: true,
     },
     courseTitle: {
       type: String,
       required: true,
     },
+
     feedback: {
       type: String,
       required: true,

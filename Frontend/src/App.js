@@ -68,7 +68,7 @@ function App() {
             <Route path="educator/live-class" element={<LiveClass />}></Route>
             <Route
               path="educator/students-doubts"
-              element={<Chatbox />}
+              element={<DoubtBox />}
             ></Route>
             <Route path="educator/playlist" element={<EDPlaylist />}></Route>
             <Route path="educator/feedback" element={<Feedback />}></Route>

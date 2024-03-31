@@ -7,6 +7,7 @@ const {
   createFeedback,
   deleteFeedback,
   teacherBasedFeedback,
+  getAllFeedback,
 } = require("../controllers/feedbackController");
 
 //ROUTER OBJECT
@@ -19,6 +20,13 @@ router.get(
   userVerification,
   adminVerification,
   teacherBasedFeedback
+);
+
+router.get(
+  "/get-all-feedback",
+  userVerification,
+  adminVerification,
+  getAllFeedback
 );
 router.delete(
   "/delete-test/:id",
