@@ -17,8 +17,20 @@ const sendOTP = (req, res) => {
   let mailTo = {
     from: "satishresearch369@gmail.com",
     to: email,
-    subject: "Email Verification",
-    text: `Your OTP for HealthWare Registration is ${storeOTP}`,
+    subject: "Email Verification - One-Time Password",
+    text: `Dear User,
+    Thank you for registering with eduMentor. To complete the registration process and verify your email address, please use the following One-Time Password (OTP):
+    
+    OTP:  ${storeOTP}
+    
+    Please enter this OTP on the verification page. If you did not request this verification or if you encounter any issues, please contact our support team immediately.
+    
+    Once your email address is verified, you'll have full access to all features and functionalities of eduMentor.
+    
+    Thank you for choosing eduMentor.
+    
+    Best regards,
+    eduMentor`,
   };
 
   transporter.sendMail(mailTo, function (err, info) {
@@ -27,7 +39,7 @@ const sendOTP = (req, res) => {
       return res.status(201).send({ message: " can't Sent" });
     } else {
       console.log(info);
-      return res.status(200).send({message: " OTP Sent"});
+      return res.status(200).send({ message: " OTP Sent" });
     }
   });
 };
@@ -35,9 +47,9 @@ const sendOTP = (req, res) => {
 const emailVerification = (req, res) => {
   const { otp } = req.body;
   if (otp == storeOTP) {
-    return res.status(200).send({success: true, message: "OTP Matched"});
+    return res.status(200).send({ success: true, message: "OTP Matched" });
   } else {
-    return res.send({success: false, message : "OTP not Matched"});
+    return res.send({ success: false, message: "OTP not Matched" });
   }
 };
 

@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { Flip, ToastContainer } from "react-toastify";
+import reportWebVitals from "./reportWebVitals";
+import routers from "./RouterList";
+import { RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/authContext";
 
-import reportWebVitals from './reportWebVitals';
-import routers from "./RouterList"
-import { RouterProvider } from 'react-router-dom';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-   <RouterProvider router={routers}/>
+    <AuthProvider>
+      <RouterProvider router={routers} />
+    </AuthProvider>
   </React.StrictMode>
 );
 
