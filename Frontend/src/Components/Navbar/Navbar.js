@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
+import companyLogo from '../../assets/large.png'
+import Logo from "./logo";
 
 function Navbar() {
   const [auth, setAuth] = useAuth();
@@ -18,28 +20,29 @@ function Navbar() {
   };
 
   return (
-    <nav class="bg-white  shadow-lg sticky w-full z-[3] border ">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            class="h-8"
+    <nav className="bg-white  shadow-lg sticky w-full z-[3] border ">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+          {/* <img
+            src={companyLogo}
+            className="h-10"
             alt="Flowbite Logo"
-          />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">
+          /> */}
+          <Logo/>
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-black">
             EduMentor
           </span>
         </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-dropdown"
           aria-expanded="false"
         >
-          <span class="sr-only">Open main menu</span>
+          <span className="sr-only">Open main menu</span>
           <svg
-            class="w-5 h-5"
+            className="w-5 h-5"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -54,12 +57,12 @@ function Navbar() {
             />
           </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white  dark:border-gray-700 items-center" >
+        <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white  dark:border-gray-700 items-center" >
             <li>
               <Link
                 to="/"
-                class="block py-2 px-3 text-black bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                className="block py-2 px-3 text-black bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
                 aria-current="page"
               >
                 Home
@@ -69,7 +72,7 @@ function Navbar() {
             <li>
               <Link
                 to="/aboutus"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
               >
                 About Us
               </Link>
@@ -77,7 +80,7 @@ function Navbar() {
             <li>
               <Link
                 to="contactus"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
               >
                 Contact Us
               </Link>
@@ -87,7 +90,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/login"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                    className="border p-2 rounded-lg hover:bg-red-700 transition-all duration-300  text-white bg-red-600 px-3 "
                   >
                     Login
                   </Link>
@@ -95,7 +98,7 @@ function Navbar() {
                 <li>
                   <Link
                     to="/register"
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                    className=" border lg:p-2 px-3 hover:bg-blue-700 transition-all duration-300 bg-blue-600 text-white rounded-lg shadow-xl "
                   >
                     Register
                   </Link>
@@ -106,7 +109,7 @@ function Navbar() {
                 <li>
                   <Link
                     to={`/dashboard/${auth?.user?.isEducator ? "educator" : "student"}`}
-                    class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
+                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-black md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-black md:dark:hover:bg-transparent"
                   >
                     <img
                       src="https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"
@@ -117,7 +120,7 @@ function Navbar() {
                 </li>
                 <li>
                   <button style={{ color: "red" }} onClick={handleLogout}>
-                    <i class="fas fa-sign-out"></i>
+                    <i className="fas fa-sign-out"></i>
                     Logout
                   </button>
                 </li>

@@ -17,10 +17,11 @@ import question from "../Image/question.png";
 import trofy from "../Image/trofy.svg";
 import "./HomePage.css";
 import { Pagination } from "swiper/modules";
-import Footer from "../Footer/Footer";
+// import { Carousel } from "flowbite-react";
+
 
 export default function Home() {
-  const navigate = useNavigate();
+  
 
   const facility = [
     {
@@ -106,9 +107,9 @@ export default function Home() {
             modules={[Pagination]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <div className="swiper_page_One">
-                <div className="swiper_page_One_Col_left">
+            <SwiperSlide className="boder ">
+              <div className="swiper_page_One border border-green-600">
+                <div className="swiper_page_One_Col_left   ">
                   <p className="text-green-700">PHYSICS</p>
                   <p>for 11th & 12th.</p>
                   <p>
@@ -136,13 +137,15 @@ export default function Home() {
               </div>
             </SwiperSlide>
           </Swiper>
+          
+
         </div>
         <div className="Home_facilitates_Box">
           <div className="Home_facilitates_title">
             <div className="Home_facilitates_left">
               <p>
                 Crack IIT JEE with{" "}
-                <span className="text-green-700">Unacademy</span>
+                <span className="text-green-700">EduMentor</span>
               </p>
               <h1>
                 Over<span className="text-green-700">10 crore</span> learners
