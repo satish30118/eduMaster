@@ -19,9 +19,12 @@ import "./HomePage.css";
 import { Pagination } from "swiper/modules";
 // import { Carousel } from "flowbite-react";
 
+import Footer from "../Footer/Footer";
+import { useAuth } from "../../context/authContext";
 
 export default function Home() {
-  
+  const [auth, setAuth] = useAuth()
+  const navigate = useNavigate();
 
   const facility = [
     {
@@ -162,7 +165,7 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {facility.map((element) => (
-              <Link key={element.id}>
+              <Link key={element.id} to={`${auth?.token? "/dashboard/student" : "/login"}`}>
                 <div className="col_item">
                   <span>
                     <img src={element.imgLink} alt="" className="live" />

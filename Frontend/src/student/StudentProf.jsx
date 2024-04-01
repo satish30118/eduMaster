@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import StudentMenu from "./StudentMenu";
 import coverphoto from '../assets/CoverImg.jpg'
 import profiileImg from '../assets/profileimg.avif'
 import courses from '../assets/educator.png'
+import { useAuth } from "../context/authContext";
 
 const StudentProf = () => {
+  const [auth, setAuth] = useAuth()
   return (
     <div className="dashboard">
       <div className="menu">
@@ -27,7 +29,7 @@ const StudentProf = () => {
 
             <div className=" lg:p-4 lg:space-y-3">
               <div className=" flex-col border-b-2 flex px-4 py-2 ">
-                <span className=" lg:text-3xl text-[23px]  font-semibold">Mama ji</span>
+                <span className=" lg:text-3xl text-[23px]  font-semibold">{auth?.user?.name}</span>
                 <span className=" flex flex-col">
                   <span className=" space-x-2">
                     {" "}
