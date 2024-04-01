@@ -68,14 +68,18 @@ body {
 }
 
 .swiper_page_One_Col_left {
-  width: 40vw;
-  height: 100%;
+  width: 80vw;
+  height: 60vh;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
   padding: 2%;
   box-sizing: border-box;
+  background-image: url('../../assets/FrontImg.jpg');
+  background-repeat:  no-repeat;
+  background-position: center;
+  background-size: cover;
 
   p {
     font-size: 2rem;

@@ -3,6 +3,7 @@ import "tailwindcss/tailwind.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
+import Logo from './../Navbar/logo';
 
 function Register() {
   const [auth, setAuth] = useAuth();
@@ -123,11 +124,7 @@ function Register() {
             href="#"
             class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-black"
           >
-            <img
-              class="w-8 h-8 mr-2"
-              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
-              alt="logo"
-            />
+           <Logo/>
             eduMentor
           </a>
           <div class="w-full bg-white rounded-lg  shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
