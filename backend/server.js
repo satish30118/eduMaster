@@ -9,6 +9,8 @@ const courseRoutes = require("./router/courseRoute");
 const feedbackRoutes = require("./router/feedbackRoute");
 const assignmentRoutes = require("./router/assignmentRoute");
 const chatRoutes = require("./router/chatRoute");
+const http = require('http');
+const socketIo = require('socket.io');
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -21,6 +23,8 @@ connectDB();
 
 //REST OBJECT
 const app = express();
+const server = http.createServer(app);
+const io = socketIo(server);
 
 //MIDDELWARES
 app.use(cors());
@@ -29,6 +33,29 @@ app.use(morgan("dev"));
 app.use(bodyParser.json());
 
 //ROUTES
+io.on('connection', (socket) => {
+  console.log('New client connected');
+
+  socket.on('joinRoom', (roomId) => {
+    socket.join(roomId);
+  });
+
+  socket.on('offer', (offer, roomId) => {
+    socket.to(roomId).emit('offer', offer);
+  });
+
+  socket.on('answer', (answer, roomId) => {
+    socket.to(roomId).emit('answer', answer);
+  });
+
+  socket.on('iceCandidate', (iceCandidate, roomId) => {
+    socket.to(roomId).emit('iceCandidate', iceCandidate);
+  });
+
+  socket.on('disconnect', () => {
+    console.log('Client disconnected');
+  });
+});
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/test", testRoutes);
 app.use("/api/v1/course", courseRoutes);
@@ -44,6 +71,6 @@ app.get("/", (req, res) => {
 
 //PORT and LISTEN SECTION
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`port is running at ${PORT}`.bgBlue);
 });
